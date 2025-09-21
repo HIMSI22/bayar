@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Gateway Modern</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <main class="payment-container">
+      <div class="payment-header">
+        <h2>✨ RFK Payment Gateway</h2>
+        <p>Pilih metode pembayaran & nominal, lalu konfirmasi.</p>
+        <p class="contact">📩 Kirim bukti ke <strong>6283869785398</strong></p>
+      </div>
+
+      <!-- Step 1 -->
+      <section class="payment-methods">
+        <h3>1. Pilih Metode Pembayaran</h3>
+        <div class="methods">
+          <div class="method" data-method="qris"><img src="https://files.catbox.moe/bk9xwt.png" alt="QRIS"></div>
+          <div class="method" data-method="dana"><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA"></div>
+          <div class="method" data-method="ovo"><img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" alt="OVO"></div>
+          <div class="method" data-method="gopay"><img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="GoPay"></div>
+        </div>
+      </section>
+
+      <!-- Step 2 -->
+      <section class="amount-selection">
+        <h3>2. Pilih Nominal</h3>
+        <div class="amounts">
+          <button class="amount-btn" data-amount="10000">Rp 10.000</button>
+          <button class="amount-btn" data-amount="25000">Rp 25.000</button>
+          <button class="amount-btn" data-amount="50000">Rp 50.000</button>
+          <button class="amount-btn" data-amount="100000">Rp 100.000</button>
+          <button class="amount-btn" data-amount="150000">Rp 150.000</button>
+        </div>
+        <div class="manual-amount-wrapper">
+          <input type="number" id="manual-amount" placeholder="Atau masukkan nominal lain">
+          <p id="validation-message" class="validation-message hidden">Nominal harus antara Rp 10.000 dan Rp 150.000</p>
+        </div>
+      </section>
+
+      <!-- Step 3 -->
+      <section id="payment-details" class="payment-details-section hidden">
+        <h3>3. Detail Pembayaran</h3>
+        
+        <!-- QRIS -->
+        <div id="qris-display" class="hidden card">
+          <p>Scan kode QR di bawah:</p>
+          <img id="qris-image" src="" alt="QRIS Code" class="qr-code">
+          <div class="flex-center gap">
+            <a id="download-qris-btn" class="btn" href="#" download="QRIS.jpeg">⬇ Unduh QR</a>
+            <button id="copy-qris-btn" class="btn secondary">📋 Salin Nomor</button>
+          </div>
+        </div>
+        
+        <!-- Wallet -->
+        <div id="wallet-display" class="hidden card">
+          <p>Transfer ke E-Wallet berikut:</p>
+          <div class="wallet-info">
+            <p><strong>Penerima:</strong> <span id="receiver-name"></span></p>
+            <p><strong>Nomor HP:</strong> <span id="phone-number"></span></p>
+          </div>
+          <button id="copy-wallet-btn" class="btn secondary">📋 Salin Nomor</button>
+        </div>
+        
+        <p class="total-amount"><strong>Total:</strong> <span id="total-payment"></span></p>
+      </section>
+
+      <button id="pay-button" class="pay-btn" disabled>🚀 Bayar Sekarang</button>
+    </main>
+    
+    <footer class="page-footer">
+      <p>&copy; 2025 RFK Payment Gateway</p>
+    </footer>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="success-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <img src="https://cdn.dribbble.com/users/1751799/screenshots/5512482/check-mark.gif" alt="Success" class="success-gif">
+      <h2>Pembayaran Berhasil!</h2>
+      <p>Terima kasih 🎉 pembayaran Anda telah diproses.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
